@@ -1,0 +1,9 @@
+<appcmd>
+    <SITE state="Started">
+        <site name="ayo" id="1">
+            <application path="/" preloadEnabled="true">
+
+            </application>
+        </site>
+    </SITE>
+</appcmd>
