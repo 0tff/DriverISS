@@ -1,0 +1,17 @@
+# Specify minimum Vagrant version and Vagrant API version
+Vagrant.require_version ">= 1.6.0"
+VAGRANTFILE_API_VERSION = "2"
+
+# Create boxes
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "rodev-env" do |rodev|
+    rodev.vm.hostname = "rodev-env"
+    rodev.vm.box = "bento/ubuntu-20.04"
+    rodev.vm.network "private_network", ip: "192.168.1.10" # Italian IP address
+    rodev.vm.provision "shell", path: "scripts/setup.sh"
+    rodev.vm.provider :virtualbox do |vb|
+      vb.name = "rodev-env"
+      vb.memory = 4096
+    end
+  end
+end
